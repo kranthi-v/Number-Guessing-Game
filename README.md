@@ -30,5 +30,5 @@
 2. Save the file as game.py
 3. Open terminal/Command prompt
 4. Run the Program:
-   Python game.py
+   - Python game.py
 
