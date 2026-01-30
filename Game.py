@@ -18,12 +18,11 @@ while chances > 0:
         print(f"Congratulations! You've guessed the number {number} correctly!")
         break
 
-    elif chances == 0:
-        print(f"Sorry, you've run out of chances. The number was {number}.\nBetter luck next time!")
-        break
-
     elif guess > number:
-        print("Too high, Try lower number.")
+        print("Too high! Try lower number.")
 
-    elif guess < number:
-        print("Too low, Try higher number.")
+    else:
+        print("Too low! Try higher number.")
+
+if chances == 0 and guess != number:
+    print(f"Sorry, you've used all your chances. The number was {number}. Better luck next time!")
