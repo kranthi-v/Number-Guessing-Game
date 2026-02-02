@@ -1,21 +1,36 @@
 import random
 
-print("Hi! Welcome to the Number Guessing Game.\nYou have 7 chances to guess the number. Let's start!")
+print("Hi! Welcome to the Number Guessing Game.")
+print("Select Difficulty Level:")
+print("1. Easy (1 - 50, 10 chances)")
+print("2. Medium (1 - 100, 7 chances)")
+print("3. Hard (1 - 200, 5 chances)")
 
-low = int(input("Enter the lower bound of the range: "))
-high = int(input("Enter the upper bound of the range: "))
+Choice = int(input("Enter your Choice (1/2/3): "))
 
-print(f"Great! I'm thinking of a number between {low} and {high}, you have 7 chances to guess it.")
+if Choice == 1:
+    low, high = 1, 50
+    chances = 10
+elif Choice == 2:
+    low, high = 1, 100
+    chances = 7
+elif Choice == 3:
+    low, high = 1, 200
+    chances = 5
+else:
+    print("Invalid Choice!")
+    exit()
+
+print(f"Great! I'm thinking of a number between {low} and {high}, you have {chances} chances to guess it.")
 
 number =  random.randint(low, high)
-chances = 7
 
 while chances > 0:
     guess = int(input("Make a guess: "))
     chances -= 1
 
     if guess == number:
-        print(f"Congratulations! You've guessed the number {number} correctly!")
+        print(f"🎉 Congratulations! You've guessed the number {number} correctly!")
         break
 
     elif guess > number:
@@ -25,4 +40,4 @@ while chances > 0:
         print("Too low! Try higher number.")
 
 if chances == 0 and guess != number:
-    print(f"Sorry, you've used all your chances. The number was {number}. Better luck next time!")
+    print(f"🥲 Sorry, you've used all your chances. The number was {number}. Better luck next time!")
