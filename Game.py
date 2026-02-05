@@ -5,8 +5,15 @@ print("Select Difficulty Level:")
 print("1. Easy (1 - 50, 10 chances)")
 print("2. Medium (1 - 100, 7 chances)")
 print("3. Hard (1 - 200, 5 chances)")
-
-Choice = int(input("Enter your Choice (1/2/3): "))
+while True:
+    try:
+        Choice = int(input("Enter your Choice (1/2/3): "))
+        if Choice in [1, 2, 3]:
+            break
+        else:
+            print("Please enter a valid choice (1, 2, or 3).")
+    except ValueError:
+        print("Please enter a valid integer.")
 
 if Choice == 1:
     low, high = 1, 50
@@ -14,19 +21,23 @@ if Choice == 1:
 elif Choice == 2:
     low, high = 1, 100
     chances = 7
-elif Choice == 3:
+else:
     low, high = 1, 200
     chances = 5
-else:
-    print("Invalid Choice!")
-    exit()
 
 print(f"Great! I'm thinking of a number between {low} and {high}, you have {chances} chances to guess it.")
 
 number =  random.randint(low, high)
 
 while chances > 0:
-    guess = int(input("Make a guess: "))
+    try:
+        guess = int(input("Make a guess: "))
+        if guess < low or guess > high:
+            print(f"Please enter a number between {low} and {high}.")
+            continue
+    except ValueError:
+        print("Please enter a valid integer.")
+        continue
     chances -= 1
 
     if guess == number:
@@ -38,6 +49,8 @@ while chances > 0:
 
     else:
         print("Too low! Try higher number.")
+
+    print(f"You have {chances} chances left.")
 
 if chances == 0 and guess != number:
     print(f"🥲 Sorry, you've used all your chances. The number was {number}. Better luck next time!")
