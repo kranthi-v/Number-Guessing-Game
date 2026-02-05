@@ -59,8 +59,10 @@ Make a guess: 45
 Too high! Try a lower number.
 Remaining chances: 6
 ```
-## 📈Future Enhancements
+# 📝 Code logic overview
 
-- Input validation
+- try-except Blocks: Used to ensure the program doesn't crash if the user enters text instead of a number.
+- While Loops: Manages the game state and ensures the user stays within the valid range of numbers.
+- random.randint(): Generates the secret target number.
 
 
